@@ -1,0 +1,186 @@
+{
+  "info": {
+    "name": "Construction App API",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-123456789000",
+    "description": "Full API collection for Construction Project App (Auth, Projects, DPR).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"password\": \"123456\",\n    \"role\": \"admin\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Building A\",\n    \"description\": \"Foundation work\",\n    \"startDate\": \"2025-01-01\",\n    \"endDate\": \"2025-03-01\",\n    \"status\": \"planned\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/projects",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["projects"]
+            }
+          }
+        },
+        {
+          "name": "Get All Projects",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/projects",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["projects"]
+            }
+          }
+        },
+        {
+          "name": "Get Single Project",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/projects/{{projectId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["projects", "{{projectId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/projects/{{projectId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["projects", "{{projectId}}"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "DPR (Daily Progress Report)",
+      "item": [
+        {
+          "name": "Create DPR",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"projectId\": 1,\n    \"date\": \"2025-01-20\",\n    \"workDescription\": \"Cement work\",\n    \"weather\": \"Sunny\",\n    \"workerCount\": 15\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/dpr",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["dpr"]
+            }
+          }
+        },
+        {
+          "name": "Get DPR by Project",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/dpr?projectId={{projectId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["dpr"],
+              "query": [
+                { "key": "projectId", "value": "{{projectId}}" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "projectId",
+      "value": "1"
+    }
+  ]
+}
