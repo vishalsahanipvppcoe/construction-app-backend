@@ -2,6 +2,9 @@
 
 Backend for construction project management system — includes authentication, project tracking, and daily progress reports (DPR).
 Built for Intern Selection Task.
+🎥 Walkthrough Video
+https://drive.google.com/drive/folders/1v5fh3RpYURPcZu-NAR7syuT3i-X47QdR?usp=drive_link
+
 
 🚀 Tech Stack
 Layer	Technology
@@ -25,7 +28,7 @@ README.md
 
 ⚙️ Setup Instructions
 1. Clone repository
-git clone https://github.com/yourusername/construction-app-backend.git
+git clone  https://github.com/vishalsahanipvppcoe/construction-app-backend.git
 cd construction-app-backend
 
 2. Install dependencies
@@ -151,4 +154,4 @@ Include it in repo:
 construction-app.postman_collection.json
 
 🎥 Walkthrough Video
-https://drive.google.com/your-demo-video
+https://drive.google.com/drive/folders/1v5fh3RpYURPcZu-NAR7syuT3i-X47QdR?usp=drive_link
