@@ -1,7 +1,7 @@
 🏗️ Construction Field Management Backend
 
 Backend for construction project management system — includes authentication, project tracking, and daily progress reports (DPR).
-Built for Intern Selection Task.
+
 🎥 Walkthrough Video
 https://drive.google.com/drive/folders/1v5fh3RpYURPcZu-NAR7syuT3i-X47QdR?usp=drive_link
 
@@ -71,9 +71,7 @@ work_description	text
 weather	varchar
 worker_count	int
 created_at	timestamp
-🔗 ER DIAGRAM
 
-(You may generate an image using draw.io or I can create one for you.)
 
 users (1) ---- (∞) projects
 users (1) ---- (∞) daily_reports
